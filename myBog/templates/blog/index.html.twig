@@ -3,6 +3,39 @@
 {% block title %}Hello BlogController!{% endblock %}
 
 {% block body %}
-    <h1>Hello world</h1>
+    <section class="articles">
+
+        <article>
+            <h2>Titre de l'article</h2>
+            <div class="metadata">Ecrit le 06/11/2020 à 16:17 dans la catégorie actualité</div>
+            <div class="content">
+                <img src="http://placehold.it/350x150" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, culpa magni eveniet possimus officia atque!</p>
+                <p>Nemo rem iusto animi ratione dicta incidunt delectus. Neque voluptatibus earum totam non qui maxime.</p>
+                <a href="{{ path('blog_show') }}" class="btn btn-primary">lire la suite</a>
+            </div>
+        </article>
+        <article>
+            <h2>Titre de l'article</h2>
+            <div class="metadata">Ecrit le 06/11/2020 à 16:17 dans la catégorie actualité</div>
+            <div class="content">
+                <img src="http://placehold.it/350x150" alt="">
+                <p>Ea hic placeat tempora aliquid delectus eveniet sapiente nostrum eum sint! Nihil ea quas nostrum?</p>
+                <p>Praesentium dicta iure fugit voluptate molestias hic aperiam aspernatur soluta voluptates minus. Saepe, reiciendis commodi!</p>
+                <a href="{{ path('blog_show') }}" class="btn btn-primary">lire la suite</a>
+            </div>
+        </article>
+        <article>
+            <h2>Titre de l'article</h2>
+            <div class="metadata">Ecrit le 06/11/2020 à 16:17 dans la catégorie actualité</div>
+            <div class="content">
+                <img src="http://placehold.it/350x150" alt="">
+                <p>Saepe aliquam veritatis nobis. Eligendi sint omnis praesentium obcaecati itaque unde aspernatur, consequuntur hic ipsam?</p>
+                <p>Saepe, eum magni. Veritatis inventore incidunt voluptas harum ipsum fugiat consequatur architecto quia aliquid beatae?</p>
+                <a href="{{ path('blog_show') }}" class="btn btn-primary">lire la suite</a>
+            </div>
+        </article>
+
+    </section>
     
 {% endblock %}

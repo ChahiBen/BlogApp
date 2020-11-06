@@ -27,5 +27,12 @@ class BlogController extends AbstractController
             'age' => 24 
         ]);
     }
+
+    /**
+     * @Route("/blog/article/12", name="blog_show")
+     */
+    public function show(){
+        return $this->render('blog/show.html.twig');
+    }
     
 }
