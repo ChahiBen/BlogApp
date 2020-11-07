@@ -4,24 +4,12 @@
 
 {% block body %}
     <article>
-            <h2>Titre de l'article</h2>
-            <div class="metadata">Ecrit le 06/11/2020 à 16:17 dans la catégorie actualité</div>
+            <h2>{{ article.title }}</h2>
+            <div class="metadata">Ecrit le {{ article.createdAt|date('d/m/Y') }} à 
+            {{ article.createdAt|date('H:i') }} dans la catégorie actualité</div>
             <div class="content">
-                <img src="http://placehold.it/350x150" alt="">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, culpa magni 
-                eveniet possimus officia atque!</p>
-                <p>Nemo rem iusto animi ratione dicta incidunt delectus. Neque voluptatibus earum 
-                totam non qui maxime.</p>
-                <hr>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos earum accusamus 
-                aspernatur enim ullam aut eius nihil omnis dolorem vero iure labore cumque suscipit 
-                tempora fugit, nobis, debitis voluptatem inventore, repellendus delectus veniam 
-                molestiae porro atque? Atque tempora beatae, delectus, voluptates quisquam aliquam 
-                ullam alias fugit repudiandae doloribus laboriosam fuga.</p>
-                <p>Omnis aut rem sed nam nisi maiores tempore voluptatum minus sunt! Rerum, earum ullam 
-                delectus deserunt ipsum laudantium ratione quaerat beatae ipsam numquam necessitatibus 
-                eveniet officia vel in culpa nemo, a, aliquid nulla! Deserunt rerum a amet omnis nihil 
-                in hic, iste quod, unde debitis natus, eos facere itaque quia.</p>
+                <img src="{{ article.image }}" alt="">
+                {{ article.content|raw }}
             </div>
         </article>
 
