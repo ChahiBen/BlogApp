@@ -37,32 +37,29 @@ class BlogController extends AbstractController
     
     /**
      * @Route("/blog/new", name="blog_create")
+     * @Route("/blog/{id}/edit", name="blog_edit")
      */
-    public function create(Request $request, EntityManagerInterface $objectManager){
-        $article = new Article();
-
-        $article->setTitle("Titre d'exemple")
-                ->setContent("ContenuExemple");
-
+    public function form(Article $article = null, Request $request, EntityManagerInterface $objectManager){
+        if(!$article){
+            $article = new Article();
+        }
         $form = $this->createFormBuilder($article)
                 ->add('title')
                 ->add('content')
                 ->add('image')
                 ->getForm();
-
         $form->handleRequest($request);
-
         if($form->isSubmitted() && $form->isValid()){
-            $article->setCreatedAt(new \DateTime() );
-
+            if(!$article->getId()){
+                $article->setCreatedAt(new \DateTime() );
+            }
             $objectManager->persist($article);
             $objectManager->flush();
-
             return $this->redirectToRoute('blog_show', ['id' => $article->getId()]);
         }
-
         return $this->render('blog/create.html.twig',[
-            'formArticle' => $form->createView()
+            'formArticle' => $form->createView(),
+            'editMode' => $article->getId() !== null
         ]);
     }
 
