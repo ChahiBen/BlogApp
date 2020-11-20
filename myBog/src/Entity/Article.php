@@ -28,7 +28,6 @@ class Article
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\Length(max=255, maxMessage="votre contenu est trop long!")
      */
     private $content;
 
