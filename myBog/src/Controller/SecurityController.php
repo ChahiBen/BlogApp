@@ -49,6 +49,13 @@ class SecurityController extends AbstractController
     }
 
     /**
+     * @Route("/inscription", name="security_registration")
+     */
+    public function inscription(){
+        return $this->render('security/registration.html.twig');
+    }
+
+    /**
      * @Route("/deconnexion", name="security_logout")
      */
     public function logout(){
