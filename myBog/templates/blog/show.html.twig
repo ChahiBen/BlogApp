@@ -12,6 +12,21 @@
         </div>
     </article>
 
+    {% if app.user %}
+        {% if article.user.id == app.user.id %}
+            <form action="{{ path('blog_edit',{'id':article.id}) }}" method="post">
+                <button type="submit" class="btn btn-success">
+                    Editer
+                </button>
+            </form>
+        {% endif %}
+    {% else %}
+        <h2>Vous ne pouvezpas editer si vous n'etes pas connecter !</h2>
+        <a href="{{path('security_login')}}" class="btn btn-primary">
+            Connexion
+        </a>
+    {% endif %}
+
     <section id="commentires">
         <h1>{{ article.comments|length }} commentaires : </h1>
         {% for comment in article.comments %}

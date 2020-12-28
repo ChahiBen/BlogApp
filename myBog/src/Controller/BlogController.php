@@ -32,6 +32,15 @@ class BlogController extends AbstractController
      * @Route("/blog/{id}/edit", name="blog_edit")
      */
     public function form(Article $article = null, Request $request, EntityManagerInterface $objectManager){
+        if (strcmp($request->get('_route'), 'blog_edit') == 0) {
+            if (!$article) {
+                throw new \Exception('Article innexistant !');
+            }
+            elseif ($article->getUser()->getId() != $this->getUser()->getId())
+            {
+                throw new \Exception('Vous n\'êtes pas l\'auteur de cet article !');
+            }
+        }
         if(!$article){
             $article = new Article();
         }
@@ -42,6 +51,7 @@ class BlogController extends AbstractController
             if(!$article->getId()){
                 $article->setCreatedAt(new \DateTime() );
             }
+            $article->setUser($this->getUser());
             $objectManager->persist($article);
             $objectManager->flush();
             return $this->redirectToRoute('blog_show', ['id' => $article->getId()]);

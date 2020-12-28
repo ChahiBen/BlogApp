@@ -49,6 +49,12 @@ class Article
     private $category;
 
     /**
+     * @ORM\ManyToOne(targetEntity=User::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
+    /**
      * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="article", orphanRemoval=true)
      */
     private $comments;
@@ -119,6 +125,17 @@ class Article
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
