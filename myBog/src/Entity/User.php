@@ -7,6 +7,7 @@ use App\Repository\UserRepository;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -27,11 +28,13 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Email()
+     * @Groups("blog:get")
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("blog:get")
      */
     private $username;
 

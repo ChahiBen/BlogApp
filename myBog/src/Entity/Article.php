@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\ArticleRepository;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
@@ -22,40 +23,47 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("blog:get")
      * @Assert\Length(min=10, max=255, minMessage="Votre titre est trop court!", maxMessage="votre titre est trop long!")
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups("blog:get")
      */
     private $content;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Url()
+     * @Groups("blog:get")
      */
     private $image;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups("blog:get")
      */
     private $createdAt;
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="articles")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("blog:get")
      */
     private $category;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class)
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("blog:get")
      */
     private $user;
 
     /**
      * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="article", orphanRemoval=true)
+     * @Groups("blog:get")
      */
     private $comments;
 

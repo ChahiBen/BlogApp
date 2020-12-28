@@ -27,6 +27,20 @@ class BlogController extends AbstractController
         ]);
     }
     
+     /**
+     * @Route("/blog/{id}/delete", name="deleteArticle")
+     */
+    public function deleteArticle (Article $article,EntityManagerInterface $entityManager)
+    {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        if ($article->getUser()->getId() != $this->getUser()->getId()) {
+            throw new \Exception('Vous n\'êtes pas l\'auteur de cet article !');
+        }
+        $entityManager->remove($article);
+        $entityManager->flush();
+        return $this->redirectToRoute('blog');
+    }
+
     /**
      * @Route("/blog/new", name="blog_create")
      * @Route("/blog/{id}/edit", name="blog_edit")

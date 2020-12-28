@@ -20,6 +20,10 @@ class SecurityController extends AbstractController
      * @Route("/inscription", name="security_registration")
      */
     public function registration(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder){
+        $auth_checker = $this->get('security.authorization_checker');
+        if ($auth_checker->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            return $this->redirectToRoute('blog');
+        }
         $user = new User();
         $form = $this->createForm(RegestrationType::class, $user);
         $form->handleRequest($request);
@@ -44,6 +48,10 @@ class SecurityController extends AbstractController
      * @Route("/connexion", name="security_login")
      */
     public function login(){
+        $auth_checker = $this->get('security.authorization_checker');
+        if ($auth_checker->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            return $this->redirectToRoute('blog');
+        }
         return $this->render('security/login.html.twig');
     }
 
