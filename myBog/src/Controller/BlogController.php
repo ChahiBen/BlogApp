@@ -28,7 +28,7 @@ class BlogController extends AbstractController
     }
     
      /**
-     * @Route("/blog/{id}/delete", name="deleteArticle")
+     * @Route("/blog/{slug}/delete", name="deleteArticle")
      */
     public function deleteArticle (Article $article,EntityManagerInterface $entityManager)
     {
@@ -43,9 +43,10 @@ class BlogController extends AbstractController
 
     /**
      * @Route("/blog/new", name="blog_create")
-     * @Route("/blog/{id}/edit", name="blog_edit")
+     * @Route("/blog/{slug}/edit", name="blog_edit")
      */
     public function form(Article $article = null, Request $request, EntityManagerInterface $objectManager){
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         if (strcmp($request->get('_route'), 'blog_edit') == 0) {
             if (!$article) {
                 throw new \Exception('Article innexistant !');
@@ -68,7 +69,11 @@ class BlogController extends AbstractController
             $article->setUser($this->getUser());
             $objectManager->persist($article);
             $objectManager->flush();
-            return $this->redirectToRoute('blog_show', ['id' => $article->getId()]);
+
+            $article->setSlug(sha1($article->getId()));
+            $objectManager->flush();
+
+            return $this->redirectToRoute('blog_show', ['slug' => $article->getSlug()]);
         }
         return $this->render('blog/create.html.twig',[
             'formArticle' => $form->createView(),
@@ -77,7 +82,7 @@ class BlogController extends AbstractController
     }
 
      /**
-     * @Route("/blog/{id}", name="blog_show")
+     * @Route("/blog/{slug}", name="blog_show")
      */
     public function show(Article $article, Request $request, EntityManagerInterface $manager){
         $comment = new Comment();
@@ -90,7 +95,7 @@ class BlogController extends AbstractController
             $manager->persist($comment);
             $manager->flush();
 
-            return $this->redirectToRoute('blog_show',['id' => $article->getId()]);
+            return $this->redirectToRoute('blog_show',['slug' => $article->getSlug()]);
         }
         return $this->render('blog/show.html.twig',[
             'article' => $article,
