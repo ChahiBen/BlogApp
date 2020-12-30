@@ -126,6 +126,6 @@ class __TwigTemplate_f3e888683da99d35abf8e4eb36b1a7103f635732fcdc4bbe222dace45f7
         </div>
     </form>
 
-{% endblock %}", "security/login.html.twig", "C:\\Users\\Chahinez\\Desktop\\302\\Symfony\\BlogApp\\myBog\\templates\\security\\login.html.twig");
+{% endblock %}", "security/login.html.twig", "C:\\Users\\Chahinez\\Desktop\\302\\Symfony\\BlogApp\\templates\\security\\login.html.twig");
     }
 }

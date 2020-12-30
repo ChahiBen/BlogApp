@@ -272,6 +272,6 @@ class __TwigTemplate_4fcb5d198cb935ffc6214de2effe452f61c43fdc125f2eb51a18c707900
         {% endif %}
     </section>
 
-{% endblock %}", "blog/show.html.twig", "C:\\Users\\Chahinez\\Desktop\\302\\Symfony\\BlogApp\\myBog\\templates\\blog\\show.html.twig");
+{% endblock %}", "blog/show.html.twig", "C:\\Users\\Chahinez\\Desktop\\302\\Symfony\\BlogApp\\templates\\blog\\show.html.twig");
     }
 }

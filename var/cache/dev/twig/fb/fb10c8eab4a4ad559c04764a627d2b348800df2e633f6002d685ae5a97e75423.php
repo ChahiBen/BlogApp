@@ -160,6 +160,6 @@ class __TwigTemplate_cfba6b3b80a2c1e07ba919b6fa1d5bedfa54b8c3f92ba8df6618bb7722a
     </button>
 
     {{ form_end(formArticle) }}
-{% endblock %}", "blog/create.html.twig", "C:\\Users\\Chahinez\\Desktop\\302\\Symfony\\BlogApp\\myBog\\templates\\blog\\create.html.twig");
+{% endblock %}", "blog/create.html.twig", "C:\\Users\\Chahinez\\Desktop\\302\\Symfony\\BlogApp\\templates\\blog\\create.html.twig");
     }
 }

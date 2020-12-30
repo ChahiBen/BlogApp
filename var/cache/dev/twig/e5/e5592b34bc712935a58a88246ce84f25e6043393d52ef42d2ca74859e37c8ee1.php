@@ -154,6 +154,6 @@ class __TwigTemplate_b8ee4b5dd68876c681bfaef873f11336621ad6d954f8ec97ab6b41f86ee
     </ul>
 </div>
 {% endblock %}
-", "security/index.html.twig", "C:\\Users\\Chahinez\\Desktop\\302\\Symfony\\BlogApp\\myBog\\templates\\security\\index.html.twig");
+", "security/index.html.twig", "C:\\Users\\Chahinez\\Desktop\\302\\Symfony\\BlogApp\\templates\\security\\index.html.twig");
     }
 }

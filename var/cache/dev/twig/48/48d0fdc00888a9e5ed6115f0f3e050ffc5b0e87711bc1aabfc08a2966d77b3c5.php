@@ -170,6 +170,6 @@ class __TwigTemplate_8bc7a1a1571ffd5aba21214537efd1464ad1a2b356f8e94132624963b73
         {% endfor %}
     </section>
 {% endblock %}
-", "blog/index.html.twig", "C:\\Users\\Chahinez\\Desktop\\302\\Symfony\\BlogApp\\myBog\\templates\\blog\\index.html.twig");
+", "blog/index.html.twig", "C:\\Users\\Chahinez\\Desktop\\302\\Symfony\\BlogApp\\templates\\blog\\index.html.twig");
     }
 }

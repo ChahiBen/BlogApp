@@ -138,6 +138,6 @@ class __TwigTemplate_119132646e822023309837b5e44876857ad8ce0d4b14829823ca4d28b49
     <button type=\"submit\" class=\"btn btn-success\">Inscription</button>
     {{ form_end(form) }}
 
-{% endblock %}", "security/registration.html.twig", "C:\\Users\\Chahinez\\Desktop\\302\\Symfony\\BlogApp\\myBog\\templates\\security\\registration.html.twig");
+{% endblock %}", "security/registration.html.twig", "C:\\Users\\Chahinez\\Desktop\\302\\Symfony\\BlogApp\\templates\\security\\registration.html.twig");
     }
 }
