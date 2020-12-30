@@ -19,10 +19,11 @@ class Comment
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity=User::class)
+     * @ORM\JoinColumn(nullable=false)
      * @Groups("blog:get")
      */
-    private $author;
+    private $user;
 
     /**
      * @ORM\Column(type="text")
@@ -47,14 +48,14 @@ class Comment
         return $this->id;
     }
 
-    public function getAuthor(): ?string
+    public function getUser(): ?User
     {
-        return $this->author;
+        return $this->user;
     }
 
-    public function setAuthor(string $author): self
+    public function setUser(?User $user): self
     {
-        $this->author = $author;
+        $this->user = $user;
 
         return $this;
     }

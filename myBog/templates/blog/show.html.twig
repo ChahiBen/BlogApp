@@ -30,7 +30,7 @@
         <div class="comment">
             <div class="row">
                 <div class="col-3">
-                    {{ comment.author }} (<small>{{ comment.createdAt|date('d/m/Y à H:i') }} </small>)
+                    {{ comment.user.username }} (<small>{{ comment.createdAt|date('d/m/Y à H:i') }} </small>)
                 </div>
                 <div class="col">
                     {{ comment.conetnt|raw }}
@@ -41,14 +41,13 @@
 
         {% if app.user %}
         {{ form_start(commentForm) }}
-        {{ form_row(commentForm.author, {'attr': {'placeholder': "votre nom"}}) }}
-        {{ form_row(commentForm.conetnt, {'attr': {'placeholder': "votre Commentaire"}}) }}
+        {{ form_row(commentForm.conetnt, {'attr': {'placeholder': "votre Commentaire"},'label':"Votre commentaire :" }) }}
         <button type="submit" class="btn btn-success">
             Commenter
         </button>
         {{ form_end(commentForm) }}
         {% else %}
-            <h2>Vous ne pouvezpas commenter si vous n'etes pas connecter !</h2>
+            <h2>Vous ne pouvez pas commenter si vous n'etes pas connecter !</h2>
             <a href="{{path('security_login')}}" class="btn btn-primary">
                 Connexion
             </a>
